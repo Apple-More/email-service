@@ -2,5 +2,5 @@ import app from './app';
 import { PORT } from './config';
 
 app.listen(PORT, () => {
-  console.log(`cart service is running on port ${PORT}`);
+  console.log(`email service is running on port ${PORT}`);
 });
