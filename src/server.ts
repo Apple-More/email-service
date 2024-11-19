@@ -1,6 +1,8 @@
 import app from './app';
-import { PORT } from './config';
+import { config } from './config/env-config';
 
-app.listen(PORT, () => {
-  console.log(`email service is running on port ${PORT}`);
+const { port } = config; 
+
+app.listen(port, () => {
+  console.log(`Email service is running on port ${port}`);
 });
