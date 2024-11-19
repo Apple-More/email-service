@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { emailTransporter } from '../services/email-config';
+import { emailTransporter } from '../config/email-config';
 
 export const sendEmails = async (req: Request, res: Response): Promise<void> => {
     try {

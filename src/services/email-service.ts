@@ -1,4 +1,4 @@
-import { emailTransporter } from './email-config';
+import { emailTransporter } from '../config/email-config';
 
 interface EmailPayload {
     emails: string[];
