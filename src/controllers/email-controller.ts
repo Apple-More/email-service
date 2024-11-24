@@ -3,16 +3,14 @@ import { emailTransporter } from '../config/email-config';
 
 export const sendEmails = async (req: Request, res: Response): Promise<void> => {
     try {
-        const { emails, subject, body } = req.body;
-        // console.log(req.body);
+        const { emails, subject, message } = req.body;
         
         const emailPromises = emails.map((email: string) =>
             emailTransporter.sendMail({
                 from: `<nipunmilinda@gmail.com>`, 
                 to: email,
                 subject: subject,
-                text: body,
-                html: `<p>${body}</p>`, 
+                text: message,
             })
         );
 
