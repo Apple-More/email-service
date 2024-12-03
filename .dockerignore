@@ -1,0 +1,14 @@
+.git
+.github
+ctrf
+dist
+node_modules
+tests
+.dockerignore
+.env
+.gitignore
+.prettierrc
+Dockerfile
+jest.config.tests
+nodemon.json
+README.md
