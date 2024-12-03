@@ -13,7 +13,7 @@ app.use('/v1',emailRoutes);
 
 // Health check route
 app.get('/health', (req: Request, res: Response) => {
-  res.status(200).json({ status: 'UP' });
+  res.status(200).json({ status: 'Email service is online' });
 });
 
 // 404 handler for unknown routes
