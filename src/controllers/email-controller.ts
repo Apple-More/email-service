@@ -7,7 +7,7 @@ export const sendEmails = async (req: Request, res: Response): Promise<void> => 
         
         const emailPromises = emails.map((email: string) =>
             emailTransporter.sendMail({
-                from: `<nipunmilinda@gmail.com>`, 
+                from: `nipunmilinda@gmail.com`, 
                 to: email,
                 subject: subject,
                 text: message,
@@ -18,7 +18,7 @@ export const sendEmails = async (req: Request, res: Response): Promise<void> => 
 
         res.status(200).json({ message: 'Emails sent successfully.' });
     } catch (error) {
-        console.error('Error sending emails:', error);
+        console.log('Error sending emails:', error);
         res.status(500).json({ error: 'Failed to send emails.' });
     }
 };
