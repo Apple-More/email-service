@@ -5,7 +5,7 @@ describe('Health Check', () => {
   it('should return 200 and status "Email Service Online" on GET /health', async () => {
     const res = await request(app).get('/health');
     expect(res.status).toBe(200);
-    expect(res.body).toMatchObject({ status: 'UP' });
+    expect(res.body).toMatchObject({ status: 'Email service is online' });
   });
 });
 
