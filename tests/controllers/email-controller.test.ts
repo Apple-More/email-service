@@ -31,9 +31,9 @@ describe('Email Controller - sendEmails', () => {
         (emailTransporter.sendMail as jest.Mock).mockResolvedValue({ messageId: '12345' });
 
         const req = mockRequest({
-            emails: ['test1@example.com', 'test2@example.com'],
+            emails: ['kibacid352@ikowat.com', 'migaguxe@polkaroad.net'],
             subject: 'Test Subject',
-            body: 'This is a test email.',
+            message: 'This is a test email.', // Updated field name
         }) as Request;
         const res = mockResponse() as Response;
 
@@ -50,9 +50,9 @@ describe('Email Controller - sendEmails', () => {
         (emailTransporter.sendMail as jest.Mock).mockRejectedValue(new Error('Transporter error'));
 
         const req = mockRequest({
-            emails: ['test1@example.com', 'test2@example.com'],
+            emails: ['kibacid352@ikowat.com', 'migaguxe@polkaroad.net'],
             subject: 'Test Subject',
-            body: 'This is a test email.',
+            message: 'This is a test email.', // Updated field name
         }) as Request;
         const res = mockResponse() as Response;
 
@@ -64,7 +64,7 @@ describe('Email Controller - sendEmails', () => {
         expect(res.json).toHaveBeenCalledWith({ error: 'Failed to send emails.' });
     });
 
-    it('should return 500 for missing required fields', async () => {
+    it('should return 400 for missing required fields', async () => {
         const req = mockRequest({}); // No body data
         const res = mockResponse();
 
@@ -72,7 +72,7 @@ describe('Email Controller - sendEmails', () => {
 
         // Ensure that sendMail is not called and the error is handled
         expect(emailTransporter.sendMail).not.toHaveBeenCalled();
-        expect(res.status).toHaveBeenCalledWith(500);
-        expect(res.json).toHaveBeenCalledWith({ error: 'Failed to send emails.' });
+        expect(res.status).toHaveBeenCalledWith(400);
+        expect(res.json).toHaveBeenCalledWith({ error: 'Emails field is required and should be a non-empty array.' });
     });
 });
