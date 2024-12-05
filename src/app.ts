@@ -12,7 +12,7 @@ app.use(express.json());
 app.use('/v1',emailRoutes);
 
 // Health check route
-app.get('/health', (req: Request, res: Response) => {
+app.get('/public/health', (req: Request, res: Response) => {
   res.status(200).json({ status: 'Email service is online' });
 });
 
